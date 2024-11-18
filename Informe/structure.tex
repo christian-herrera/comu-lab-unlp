@@ -1,0 +1,140 @@
+%----------------------------------------------------------------------------------------
+%	PAQUETES GENERALES
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	PAQUETES GENERALES
+%----------------------------------------------------------------------------------------
+\usepackage[spanish,es-noshorthands]{babel} % Configuración para palabras en Español
+\usepackage{microtype} 						% Proporciona características avanzadas de microtipografía
+\usepackage{XCharter} 						% Proporciona una familia de fuentes basada en la fuente Charter
+\usepackage{lettrine} 						% Paquete para acentuar la primer letra de un texto (lettrine)
+\usepackage{amsmath,amsfonts,amsthm} 		% Paquetes para matemáticas
+\usepackage{graphicx} 						% Requerido para agregar imágenes
+\usepackage{svg}
+\usepackage{float}							% Requerido para el posicionamiento flotante
+\usepackage{tcolorbox}						% Permite hacer recuadros para definiciones
+\usepackage{multicol}						% Multicolumnas
+\usepackage[hidelinks]{hyperref}			% Este paquete se utiliza para manejar enlaces dentro del documento
+\usepackage{color}							% Permite colocar colores a los textos
+\usepackage{circuitikz}						% Permite crear circuitos eléctricos
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	MARGINS AND SPACING
+%----------------------------------------------------------------------------------------
+\usepackage{geometry}
+\geometry{
+	top=1cm,
+	bottom=1cm,
+	left=1cm,
+	right=1cm,
+	includehead,
+	includefoot,
+	%showframe, % Descomentar para visualizar los limites
+}
+\setlength{\columnsep}{5mm} 				% Separacion entre columnas
+% \setlength{\columnseprule}{0.1mm} 		% Linea entre columnas
+\usepackage{titlesec}						% Permite modificar los espacios de los titulos
+\titlespacing{\section}{0pt}{10pt}{5pt}		% Izquierda del titulo, Antes y despues del mismo
+
+
+
+%----------------------------------------------------------------------------------------
+%	ENCABEZADO Y PIE DE PAGINA
+%----------------------------------------------------------------------------------------
+\usepackage{fancyhdr}	% Permite modificar los Encabezados y Pie de Pagina
+\usepackage{lastpage} 	% Used to determine the number of pages in the document (for "Page X of Total")
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}	% Separacion post-header
+\renewcommand{\footrulewidth}{1pt}	% Separacion pre-footer
+\fancyfoot[OR, EL]{Pagina \thepage/\pageref*{LastPage}}
+\fancyfoot[OL, ER]{\autor}
+\fancyhead[OR, EL]{\today}
+\fancyhead[OL, ER]{\tituloHeader}
+
+
+%----------------------------------------------------------------------------------------
+%	FORMATO DEL TITULO Y DEL RESUMEN COMO COMANDO
+%----------------------------------------------------------------------------------------
+\fancypagestyle{firstpage}{ 		% Solo para la pagina que tenga "\thispagestyle{firstpage}"
+	\fancyhead{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+\newcommand{\TituloyResumen}[2]{
+	\thispagestyle{firstpage}
+	\vspace*{-1.5cm}
+
+	% TITULO
+	\begin{center}
+		{\huge\bfseries \titulo}\vspace{5mm}\break
+		{\large \autor}\break
+		{\establecimiento}
+	\end{center}
+
+	% RESUMEN
+	\begin{center}
+		\rule{\linewidth}{0.1mm}
+		\begin{flushleft}
+			\begin{Large}
+				\textbf{Resumen}
+			\end{Large}\break
+			#1
+			\vspace{3mm}\break
+			\textit{\textbf{Palabras Claves}}: #2
+		\end{flushleft}
+		\vspace{-\baselineskip}
+		\rule{\linewidth}{0.1mm}
+	\end{center}
+
+	% FECHA
+	\begin{center}
+		\textit{\today}
+	\end{center}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TEXTO EN GENERAL
+%----------------------------------------------------------------------------------------
+\usepackage{parskip}							% Al usarlo, elimina todas las sangrias.
+\setlength{\parindent}{0pt} 					% Elimina la sangría
+\setlength{\parskip}{6pt plus 1pt minus 1pt} 	% Separacion base: 6pt, Maximo adicional 2pt y minimo adicional 1pt
+\setlength{\headheight}{13.6pt}
+
+
+
+%----------------------------------------------------------------------------------------
+%	CONFIGURACION DEL CUERPO (TABLAS Y FIGURAS)
+%----------------------------------------------------------------------------------------
+\usepackage{booktabs}		% Para centrar las tablas
+\definecolor{GrayCaptions}{rgb}{0.5,0.5,0.5}
+\usepackage[
+	font={footnotesize, color=GrayCaptions},   % Aplica el color a los captions
+	figurename=Imagen,    % Cambia el nombre de las figuras a "Imagen"
+	tablename=Tabla,      % Cambia el nombre de las tablas a "Tabla"
+	labelfont={it}        % Aplica itálico a las etiquetas
+]{caption}
+\setlength{\abovecaptionskip}{5pt plus 2pt minus 2pt} % Separacion de los 'captions' con el objeto
+\setlength{\belowcaptionskip}{-12pt plus 2pt minus 2pt} % Separacion de los 'captions' con el texto que continua.
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAFIA (Para deshabilitar, comentar lo siguiente)
+%----------------------------------------------------------------------------------------
+\usepackage{csquotes}
+\usepackage[
+backend=biber,
+style=apa,
+sortcites,
+url=true
+]{biblatex}
+\addbibresource{Bibliografia.bib}
+
+
+

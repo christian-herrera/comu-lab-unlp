@@ -1,0 +1,38 @@
+\documentclass[spanish,10.5pt,twoside,a4paper]{article}
+\newcommand{\titulo}{Laboratorio - Fund. de las Comunicaciónes}
+\newcommand{\tituloHeader}{\titulo}
+\newcommand{\autor}{Christian Yoel Herrera}
+\newcommand{\establecimiento}{Facultad de Ingenieria, UNLP}
+
+\input{structure.tex}
+
+
+
+%%%%%%%%%%%%%% CUERPO %%%%%%%%%%%%%%
+\begin{document}
+	\TituloyResumen{
+		En este informe se desarrolla el estudio del procesamiento digital de señales utilizando el Dongle Receptor de SDR y el Software MatLab.
+	}{
+		ING, UNLP, SDR, FM, MatLab, MPX
+	}
+
+	% CUERPO
+	\begin{multicols*}{2}	
+		\input{sections/Introduccion.tex}\vspace{3mm}
+		
+		\input{sections/Seccion1.tex}
+		\input{sections/Seccion2.tex}
+		
+		
+		\vspace{1cm}
+		\hrule
+		
+		% Bibliografia
+		\nocite{*}	% Permite mostrar todo, aunque no este citado
+		\printbibliography[title=Bibliografía]
+		
+	\end{multicols*}
+	
+	
+	
+\end{document}
